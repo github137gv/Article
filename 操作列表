@@ -1,0 +1,113 @@
+# 操作列表
+
+用for循环遍历列表：
+
+```
+bicycles = ['trek', 'cannodale', 'redline', 'specialized']
+for bicycle in bicycles:
+    print(bicycle)
+```
+
+结果：
+
+```python
+trek
+cannodale
+redline
+specialized
+```
+
+ 
+
+创建数值列表
+
+```
+for value in range(1,6):
+    print(value)
+```
+
+结果：
+
+```python
+1
+2
+3
+4
+5
+```
+
+利用list()函数将数值列表转换为列表
+
+```
+numbers = list(range(1,8))
+print(numbers)
+```
+
+结果：
+
+```python
+[1, 2, 3, 4, 5, 6, 7]
+```
+
+
+
+使用range()函数时，还可以指定步长，例如，打印1`10之间的偶数
+
+```
+numbers = list(range(2,11,2))
+print(numbers)
+```
+
+结果：
+
+```python
+[2, 4, 6, 8, 10]
+```
+
+打印1`10的平方到列表中：
+
+```
+squares = []
+for value in range(1,11):
+    squares.append(value**2)
+print(squares)
+```
+
+结果：
+
+```python
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+对列表的统计计算：
+
+```
+squares = []
+for value in range(1,11):
+    squares.append(value)
+print(squares)
+print(min(squares),max(squares),sum(squares))
+```
+
+结果：
+
+```python
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+1 10 55
+```
+
+列表解析：
+
+```
+squares = [value**2 for value in range(1,11)]
+print(squares)
+```
+
+结果：
+
+```python
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+
+
