@@ -1,0 +1,110 @@
+# 函数
+
+```python
+roommates = ['倪语希','王逸豪','姜扬','郭威']
+roommatestest = []
+
+def change(rm,rmt):
+    while rm:
+        rmt.append(roommates.pop())
+    print(rm)
+    print(rmt)
+
+change(roommates,roommatestest)
+```
+
+结果：
+
+```python
+[]
+['郭威', '姜扬', '王逸豪', '倪语希']
+```
+
+可以看出，结束后roomates中的元素都被弹出，输出后为空
+
+如果不想改变roomates，可用这种方法：
+
+```python
+roommates = ['倪语希','王逸豪','姜扬','郭威']
+roommatestest = []
+
+def change(rm,rmt):
+    while rm:
+        rmt.append(rm.pop())
+    print(roommates)
+    print(rmt)
+
+change(roommates[:],roommatestest)
+```
+
+结果：
+
+```python
+['倪语希', '王逸豪', '姜扬', '郭威']
+['郭威', '姜扬', '王逸豪', '倪语希']
+```
+
+即传的参数时roomates的副本，所以roomates并未发生改变
+
+传递任意数量的实参：
+
+```python
+def your_mate(*ms):
+    for m in ms:
+        print(m)
+
+your_mate('abc','def','fuck')
+```
+
+结果：
+
+```python
+abc
+def
+fuck
+```
+
+如果有多个参数并且有参数中存在任意数量的实参，则应吧任意数量的实参放在最后，Python先匹配位置实参和关键字实参：
+
+```python
+def your_mate(num,*ms):
+    print('num is:',num)
+    for m in ms:
+        print(m)
+
+your_mate('abc','def','fuck')
+```
+
+结果：
+
+```python
+num is: abc
+def
+fuck
+```
+
+使用任意数量的关键字实参：
+
+```python
+def build_profile(first,last,**user_info):
+    profile = {}
+    profile['first_name'] = first
+    profile['last_name'] = last
+    for key,value in user_info.items():
+        profile[key] = value
+    return profile
+
+user_profile = build_profile('albert','einstein',
+                             location =  'princeton',
+                             field = 'physics')
+
+print(user_profile)
+```
+
+结果：
+
+```python
+{'first_name': 'albert', 'last_name': 'einstein', 'location': 'princeton', 'field': 'physics'}
+```
+
+形参**user_info中的两个星号让Python创建一个名为profile的空字典，用于存储用户简介
