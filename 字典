@@ -1,0 +1,160 @@
+# 字典
+
+遍历字典：
+
+```python
+user_0 = {
+    'username':'efermi',
+    'first':'enrico1',
+    'last':'fermi',
+}
+for key,value in user_0.items():
+    print("\nkey:" + key)
+    print("\nvalue:" + value)
+
+```
+
+结果：
+
+```python
+key:username
+
+value:efermi
+
+key:first
+
+value:enrico1
+
+key:last
+
+value:fermi
+```
+
+items() 方法以列表返回可遍历的(键, 值) 元组数组。
+
+
+
+```python
+user_0 = {
+    'username':'efermi',
+    'first':'enrico1',
+    'last':'fermi',
+}
+for key in user_0.keys():
+    print("\nkey:" + key)
+```
+
+结果：
+
+```python
+key:username
+
+key:first
+
+key:last
+
+```
+
+如果后面不加keys()，结果不变，如果后面加的时values()，输出的将是
+
+```python
+key:efermi
+
+key:enrico1
+
+key:fermi
+```
+
+去除重复的valuekey:fermi
+
+```python
+user_0 = {
+    'username':'efermi',
+    'first':'enrico1',
+    'last':'fermi',
+    'la':'fermi',
+}
+for key in set(user_0.values()):
+    print("\nkey:" + key)
+```
+
+结果：
+
+```python
+key:fermi
+
+key:efermi
+
+key:enrico1
+```
+
+字典列表：
+
+```python
+roommate_0 = {'name:':'王逸豪','color:':'黄色'}
+roommate_1 = {'name:':'姜扬','color:':'黑色'}
+roommate_2 = {'name:':'倪语希','color:':'绿色'}
+
+roommates = [roommate_0,roommate_1,roommate_2]
+
+for roomamte in roommates:
+	print(roomamte)
+```
+结果：
+```python
+{'name:': '王逸豪', 'color:': '黄色'}
+{'name:': '姜扬', 'color:': '黑色'}
+{'name:': '倪语希', 'color:': '绿色'}
+```
+
+
+
+修改字典列表：
+
+```python
+roommate_0 = {'name':'王逸豪','color':'黄色'}
+roommate_1 = {'name':'姜扬','color':'黑色'}
+roommate_2 = {'name':'倪语希','color':'绿色'}
+
+roommates = [roommate_0,roommate_1,roommate_2]
+
+for roommate in roommates[:2]:
+    if roommate['color'] == '黄色':
+        roommate['name'] = '基佬'
+print(roommates)
+```
+
+结果：
+
+```python
+[{'name': '基佬', 'color': '黄色'}, {'name': '姜扬', 'color': '黑色'}, {'name': '倪语希', 'color': '绿色'}]
+```
+
+
+
+字典中存储列表
+
+```python
+roommates = {
+    '469':['刘佳','高鹏','苏浩群','赵开升'],
+    '463':['郭威','王逸豪','姜扬','倪语希'],
+    '464':['胖子','智障','头凸','海钰']
+}
+for roommate, values in roommates.items():
+    print('\n' + roommate)
+    for value in values:
+        print(value,end=" ")
+```
+
+结果：
+
+```python
+469
+刘佳 高鹏 苏浩群 赵开升 
+463
+郭威 王逸豪 姜扬 倪语希 
+464
+胖子 智障 头凸 海钰 
+```
+
+同理字典中也能储存字典
